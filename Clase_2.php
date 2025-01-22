@@ -21,7 +21,6 @@ final class Store
 
 $tienda = new Store();
 $tienda->name = 'Rosita';
-echo $tienda->direccion;
 
 class Cart
 {
@@ -101,8 +100,6 @@ class Payment extends Wallet
         $paymentMethod->executePayment();
     }
 }
-
-$pagar = new Payment(new Stripe());
 
 abstract class Wallet {
     public $endpoint;
@@ -204,7 +201,7 @@ trait Backups
 
 
 
-class MySqlService extends Connector
+class MySqlService
 {
     public function getAll($table)
     {

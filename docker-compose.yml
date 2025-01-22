@@ -1,0 +1,17 @@
+version: "3"
+services:
+  php:
+    #image: php:8.2.27-fpm
+    build: ./
+    container_name: curso_php
+    volumes:
+      - ./:/var/www/html/
+    ports:
+      - 8282:80
+    networks:
+      - curso_arqui_2025
+
+networks:
+  curso_arqui_2025:
+    name: curso_arqui_2025
+    driver: bridge
