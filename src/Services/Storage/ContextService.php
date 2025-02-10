@@ -3,6 +3,7 @@
 final class ContextService
 {
     private $data = [];
+    public $header = '';
 
     public function set($key, $value)
     {
@@ -11,6 +12,13 @@ final class ContextService
 
     public function get($key)
     {
+        try {
+            
+            throw new Exception("Error Processing Request", 1);
+            
+        } catch (\Throwable $th) {
+            ddd( $th->getTrace());
+        }
         return isset($this->data[$key])? $this->data[$key] : null;
     }
 
@@ -19,4 +27,11 @@ final class ContextService
         global $Context;
         return $Context;
     }
+
+
+    public function setInHeader(string $value)
+    {
+        $this->header .= $value;
+    }
+
 }
